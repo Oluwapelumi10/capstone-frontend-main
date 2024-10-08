@@ -5,6 +5,10 @@ pipeline {
         NODE_OPTIONS = '--openssl-legacy-provider' // Sets the necessary Node.js option to avoid potential errors
     }
 
+    tools {
+        nodejs 'NodeJS' // Ensure NodeJS is installed and configured in Jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -16,14 +20,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install npm dependencies
-                sh 'npm install'
+                sh '/bin/sh -c "npm install"'
             }
         }
 
         stage('Run Application') {
             steps {
                 // Start the application
-                sh 'npm start'
+                sh '/bin/sh -c "npm start"'
             }
         }
 
@@ -31,7 +35,7 @@ pipeline {
             steps {
                 // Run tests if you have any
                 // Uncomment the following line if you have tests to run
-                sh 'npm test'
+                sh '/bin/sh -c "npm test"'
             }
         }
     }
