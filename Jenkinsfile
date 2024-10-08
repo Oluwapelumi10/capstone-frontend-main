@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from the repository
-                git url: 'https://github.com/Oluwapelumi10/capstone-frontend-main.git'
+                git branch: 'main', url: 'https://github.com/Oluwapelumi10/capstone-frontend-main.git'
             }
         }
 
