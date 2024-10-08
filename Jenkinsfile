@@ -31,7 +31,7 @@ pipeline {
             steps {
                 // Run tests if you have any
                 // Uncomment the following line if you have tests to run
-                // sh 'npm test'
+                sh 'npm test'
             }
         }
     }
