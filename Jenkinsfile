@@ -12,6 +12,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                // Clean the workspace before checking out the code
+                cleanWs()
                 // Checkout code from the repository
                 git branch: 'main', url: 'https://github.com/Oluwapelumi10/capstone-frontend-main.git'
             }
@@ -20,14 +22,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install npm dependencies
-                sh '/bin/sh -c "npm install"'
+                sh '/bin/zsh -c "npm install"'
             }
         }
 
         stage('Run Application') {
             steps {
                 // Start the application
-                sh '/bin/sh -c "npm start"'
+                sh '/bin/zsh -c "npm start"'
             }
         }
 
@@ -35,7 +37,7 @@ pipeline {
             steps {
                 // Run tests if you have any
                 // Uncomment the following line if you have tests to run
-                sh '/bin/sh -c "npm test"'
+                sh '/bin/zsh -c "npm test"'
             }
         }
     }
